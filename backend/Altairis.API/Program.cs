@@ -69,10 +69,8 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<AltairisDbContext>();
         
-        // Aplicar migraciones pendientes
         context.Database.Migrate();
         
-        // Seed de datos iniciales
         await DbInitializer.SeedAsync(context);
         
         Console.WriteLine("Base de datos inicializada correctamente con datos de prueba");
