@@ -1,0 +1,3 @@
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=AltairisDB;Trusted_Connection=True;TrustServerCertificate=True;"
+}
