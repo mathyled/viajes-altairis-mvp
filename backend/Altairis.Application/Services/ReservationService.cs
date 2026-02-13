@@ -59,7 +59,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "La fecha de entrada no puede ser en el pasado"
+                Message = "The entry date cannot be in the past"
             };
         }
 
@@ -68,7 +68,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "La fecha de salida debe ser posterior a la fecha de entrada"
+                Message = "The exit date must be after the entry date"
             };
         }
 
@@ -77,7 +77,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "La cantidad de habitaciones debe ser mayor a 0"
+                Message = "The number of rooms must be greater than 0"
             };
         }
 
@@ -88,7 +88,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "Hotel no encontrado"
+                Message = "Hotel not found"
             };
         }
 
@@ -97,7 +97,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "El hotel no está activo"
+                Message = "The hotel is not active"
             };
         }
 
@@ -107,7 +107,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "Tipo de habitación no encontrado"
+                Message = "Room type not found"
             };
         }
 
@@ -124,7 +124,7 @@ public class ReservationService : IReservationService
             return new ReservationResultDto
             {
                 Success = false,
-                Message = "No hay disponibilidad para las fechas seleccionadas"
+                Message = "No availability for the selected dates"
             };
         }
 
@@ -140,7 +140,7 @@ public class ReservationService : IReservationService
             HuespedNombre = dto.HuespedNombre,
             FechaEntrada = dto.FechaEntrada,
             FechaSalida = dto.FechaSalida,
-            Estado = "Confirmada",
+            Estado = "Confirmed",
             MontoTotal = montoTotal,
             FechaCreacion = DateTime.UtcNow
         };
@@ -161,7 +161,7 @@ public class ReservationService : IReservationService
         return new ReservationResultDto
         {
             Success = true,
-            Message = "Reserva creada exitosamente",
+            Message = "Reservation created successfully",
             Reservation = fullReservation != null ? MapToDto(fullReservation) : null
         };
     }
@@ -182,7 +182,7 @@ public class ReservationService : IReservationService
         var reservation = await _reservationRepository.GetByIdAsync(id);
         if (reservation == null) return false;
 
-        reservation.Estado = "Cancelada";
+        reservation.Estado = "Cancelled";
         await _reservationRepository.UpdateAsync(reservation);
 
         // TODO: Liberar el inventario cuando se cancela una reserva

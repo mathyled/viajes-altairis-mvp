@@ -62,7 +62,7 @@ public class InventoryService : IInventoryService
             return new AvailabilityResultDto
             {
                 Available = false,
-                Message = "La fecha de inicio debe ser anterior a la fecha de fin"
+                Message = "The start date must be before the end date"
             };
         }
 
@@ -71,7 +71,7 @@ public class InventoryService : IInventoryService
             return new AvailabilityResultDto
             {
                 Available = false,
-                Message = "La cantidad de habitaciones debe ser mayor a 0"
+                Message = "The number of rooms must be greater than 0"
             };
         }
 
@@ -90,7 +90,7 @@ public class InventoryService : IInventoryService
             return new AvailabilityResultDto
             {
                 Available = true,
-                Message = "Hay disponibilidad para las fechas seleccionadas",
+                Message = "There is availability for the selected dates",
                 InventoryDetails = inventories.Select(MapToDto).ToList()
             };
         }
@@ -98,7 +98,7 @@ public class InventoryService : IInventoryService
         return new AvailabilityResultDto
         {
             Available = false,
-            Message = "No hay disponibilidad suficiente para las fechas seleccionadas"
+            Message = "No availability sufficient for the selected dates"
         };
     }
 
@@ -110,7 +110,7 @@ public class InventoryService : IInventoryService
 
         if (existingInventory != null)
         {
-            throw new InvalidOperationException("Ya existe inventario para esta fecha");
+            throw new InvalidOperationException("Inventory already exists for this date");
         }
 
         var inventory = new Inventory
@@ -133,7 +133,7 @@ public class InventoryService : IInventoryService
 
         if (dto.CantidadReservada > dto.CantidadTotal)
         {
-            throw new InvalidOperationException("La cantidad reservada no puede ser mayor a la cantidad total");
+            throw new InvalidOperationException("The reserved quantity cannot be greater than the total quantity");
         }
 
         inventory.CantidadTotal = dto.CantidadTotal;
@@ -147,12 +147,12 @@ public class InventoryService : IInventoryService
     {
         if (dto.FechaInicio >= dto.FechaFin)
         {
-            throw new InvalidOperationException("La fecha de inicio debe ser anterior a la fecha de fin");
+            throw new InvalidOperationException("The start date must be before the end date");
         }
 
         if (dto.CantidadTotal <= 0)
         {
-            throw new InvalidOperationException("La cantidad total debe ser mayor a 0");
+            throw new InvalidOperationException("The total quantity must be greater than 0");
         }
 
         var createdInventories = new List<InventoryDto>();
@@ -165,7 +165,7 @@ public class InventoryService : IInventoryService
 
         if (days <= 0)
         {
-            throw new InvalidOperationException("El rango de fechas debe contener al menos una noche");
+            throw new InvalidOperationException("The date range must contain at least one night");
         }
 
         for (int i = 0; i < days; i++)
