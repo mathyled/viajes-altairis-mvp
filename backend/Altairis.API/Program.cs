@@ -91,10 +91,6 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty; // Swagger en la raíz
 });
 
-// En este proyecto solo exponemos HTTP en localhost:5000, sin HTTPS,
-// así evitamos problemas de redirección cuando no hay puerto HTTPS configurado.
-// Si en un futuro se agrega HTTPS, se puede volver a habilitar.
-// app.UseHttpsRedirection();
 app.UseCors("FrontendPolicy");
 app.UseAuthorization();
 app.MapControllers();

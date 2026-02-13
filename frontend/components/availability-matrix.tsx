@@ -33,7 +33,7 @@ export function AvailabilityMatrix() {
 
   const [hotels, setHotels] = useState<HotelDto[]>([])
   const [selectedHotelId, setSelectedHotelId] = useState<number | null>(null)
-   const [roomTypes, setRoomTypes] = useState<RoomTypeDto[]>([])
+  const [roomTypes, setRoomTypes] = useState<RoomTypeDto[]>([])
    const [selectedRoomTypeId, setSelectedRoomTypeId] = useState<number | null>(null)
   const [roomAvailability, setRoomAvailability] = useState<RoomAvailabilityRow[]>([])
   const [loading, setLoading] = useState(false)

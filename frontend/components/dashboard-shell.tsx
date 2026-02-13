@@ -1,8 +1,6 @@
 "use client"
 
 import { AppSidebar } from "@/components/app-sidebar"
-import { Bell, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   return (

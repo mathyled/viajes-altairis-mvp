@@ -121,8 +121,6 @@ export default function ReservationsPage() {
         cantidadHabitaciones: rooms,
       })
       setSuccess("Reserva creada correctamente.")
-      // opcional: limpiar formulario
-      // setHotelId(""); setRoomTypeId(""); setGuestName(""); setCheckIn(""); setCheckOut(""); setRooms(1)
     } catch (err: any) {
       console.error(err)
       setError(err.message ?? "No se pudo crear la reserva.")
